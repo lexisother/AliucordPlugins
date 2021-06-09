@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -12,19 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          path: "src"
+          path: 'src'
 
       - name: Checkout builds
         uses: actions/checkout@master
         with:
-          ref: "builds"
-          path: "builds"
+          ref: 'builds'
+          path: 'builds'
 
       - name: Checkout Aliucord
         uses: actions/checkout@master
         with:
-          repository: "Aliucord/Aliucord"
-          path: "repo"
+          repository: 'Aliucord/Aliucord'
+          path: 'repo'
 
       - name: Setup JDK 11
         uses: actions/setup-java@v1
