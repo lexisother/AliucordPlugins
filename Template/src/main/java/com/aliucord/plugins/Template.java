@@ -1,6 +1,6 @@
 /*
  * Alyx's Aliucord Plugins
- * Copyright (C) 2021 Vendicated
+ * Copyright (C) 2021 Alyxia Sother
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ public class Template extends Plugin {
     @Override
     public Manifest getManifest() {
         var manifest = new Manifest();
-        manifest.authors = new Manifest.Author[] { new Manifest.Author("Vendicated", 465702500146610176L) };
+        manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "Sample plugin";
         manifest.version = "1.0.0";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
