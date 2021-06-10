@@ -6,5 +6,8 @@
   },
   "DiscordJS": {
     "version": "1.0.0"
+  },
+  "AURSearch": {
+    "version": "1.0.0"
   }
 }
