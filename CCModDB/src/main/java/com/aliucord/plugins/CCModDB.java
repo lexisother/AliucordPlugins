@@ -38,7 +38,7 @@ public class CCModDB extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "CCModDB";
-        manifest.version = "1.0.0";
+        manifest.version = "1.1.1";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -82,7 +82,7 @@ public class CCModDB extends Plugin {
                         index = index < 0 ? finalresult.archive_link.indexOf("/archive") : index;
 
                         var embed = new MessageEmbedBuilder()
-                                .setAuthor("CCModDB", "https://avatars.githubusercontent.com/u/24706696", "https://github.com/CCDirectLink/CCModDB")
+                                .setAuthor("CCModDB", "https://avatars.githubusercontent.com/u/24706696", "https://avatars.githubusercontent.com/u/24706696")
                                 .setTitle(finalresult.name)
                                 .setDescription(String.format("%s\nVersion: %s\n[Link](%s)", finalresult.description, finalresult.version, finalresult.archive_link.substring(0, index)));
 
