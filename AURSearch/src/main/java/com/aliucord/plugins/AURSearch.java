@@ -36,7 +36,7 @@ public class AURSearch extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "Search the AUR.";
-        manifest.version = "1.0.0";
+        manifest.version = "1.0.1";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -70,7 +70,7 @@ public class AURSearch extends Plugin {
                                 .setColor(2266867)
                                 .setTitle("AUR Search")
                                 .setDescription("For all results, click [here](" + aurURL + "?K=" + query + ")")
-                                .setFooter(res.resultcount + " results found, showing first 5.", null);
+                                .setFooter(res.resultcount + " results found, showing first 5.", "https://www.clipartmax.com/png/full/321-3216004_by-default-most-linux-distributions-including-arch-arch-linux-logo-png.png");
 
                         for (ApiResponse.Package pkg : res.results) {
                             if (i < 5) {
