@@ -74,14 +74,17 @@ public class CCModDB extends Plugin {
                     arguments,
                     args -> {
                         String query = (String) args.get("query");
-                        ApiResponse.Mod finalresult = res.mods.get(query);;
+                        ApiResponse.Mod finalresult = res.mods.get(query);
                         MessageEmbed finishedEmbed = null;
 
                         assert finalresult != null;
+                        int index = finalresult.archive_link.indexOf("/releases");
+                        index = index < 0 ? finalresult.archive_link.indexOf("/archive") : index;
+
                         var embed = new MessageEmbedBuilder()
                                 .setAuthor("CCModDB", "https://avatars.githubusercontent.com/u/24706696", "https://github.com/CCDirectLink/CCModDB")
                                 .setTitle(finalresult.name)
-                                .setDescription(String.format("%s\nVersion: %s\n[Link](%s)", finalresult.description, finalresult.version, finalresult.archive_link.substring(0, finalresult.archive_link.indexOf("/releases"))));
+                                .setDescription(String.format("%s\nVersion: %s\n[Link](%s)", finalresult.description, finalresult.version, finalresult.archive_link.substring(0, index)));
 
                         finishedEmbed = embed.build();
 
