@@ -1,6 +1,6 @@
 {
   "default": {
-    "minimumDiscordVersion": 79201,
+    "minimumDiscordVersion": 83210,
     "version": "1.0.0",
     "build": "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/%s.zip"
   },
