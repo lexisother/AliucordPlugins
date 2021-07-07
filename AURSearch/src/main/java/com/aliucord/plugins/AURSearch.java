@@ -36,7 +36,7 @@ public class AURSearch extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "Search the AUR.";
-        manifest.version = "1.0.1";
+        manifest.version = "1.0.2";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -50,8 +50,8 @@ public class AURSearch extends Plugin {
                 "aur",
                 "Searches the AUR.",
                 arguments,
-                args -> {
-                    String query = (String) args.get("query");
+                ctx -> {
+                    String query = ctx.getRequiredString("query");
 
                     if (query == null) return new CommandsAPI.CommandResult("You did not specify a query.", null, false);
 

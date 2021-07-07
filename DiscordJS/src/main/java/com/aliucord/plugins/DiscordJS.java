@@ -32,7 +32,7 @@ public class    DiscordJS extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "DiscordJS Documentation searcher.";
-        manifest.version = "1.0.0";
+        manifest.version = "1.0.1";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -46,8 +46,8 @@ public class    DiscordJS extends Plugin {
                 "docs",
                 "Searches the Discord.JS docs.",
                 arguments,
-                args -> {
-                    String query = (String) args.get("query");
+                ctx -> {
+                    String query = ctx.getRequiredString("query");
 
                     if (query == null) return new CommandsAPI.CommandResult("You did not specify a query.", null, false);
 

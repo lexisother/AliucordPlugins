@@ -38,7 +38,7 @@ public class CCModDB extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "CCModDB";
-        manifest.version = "1.1.1";
+        manifest.version = "1.1.2";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -72,8 +72,8 @@ public class CCModDB extends Plugin {
                     "ccmoddb",
                     "Searches the CCModDB.",
                     arguments,
-                    args -> {
-                        String query = (String) args.get("query");
+                    ctx -> {
+                        String query = ctx.getRequiredString("query");
                         ApiResponse.Mod finalresult = res.mods.get(query);
                         MessageEmbed finishedEmbed = null;
 
