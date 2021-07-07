@@ -5,10 +5,10 @@
     "build": "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/%s.zip"
   },
   "DiscordJS": {
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "AURSearch": {
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "CCModDB": {
     "version": "1.1.2"

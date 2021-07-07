@@ -25,14 +25,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 @SuppressWarnings("unused")
-public class    DiscordJS extends Plugin {
+public class DiscordJS extends Plugin {
     @NonNull
     @Override
     public Manifest getManifest() {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "DiscordJS Documentation searcher.";
-        manifest.version = "1.0.1";
+        manifest.version = "1.0.2";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -48,8 +48,6 @@ public class    DiscordJS extends Plugin {
                 arguments,
                 ctx -> {
                     String query = ctx.getRequiredString("query");
-
-                    if (query == null) return new CommandsAPI.CommandResult("You did not specify a query.", null, false);
 
                     MessageEmbed res = null;
                     String result;
