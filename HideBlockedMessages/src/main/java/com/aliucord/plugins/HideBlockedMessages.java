@@ -12,6 +12,7 @@ package com.aliucord.plugins;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
@@ -31,8 +32,8 @@ public class HideBlockedMessages extends Plugin {
     public Manifest getManifest() {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
-        manifest.description = "Hides blocked messages.";
-        manifest.version = "1.0.0";
+        manifest.description = "Completely hides blocked messages.";
+        manifest.version = "1.1.0";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
@@ -46,10 +47,8 @@ public class HideBlockedMessages extends Plugin {
             try {
                 WidgetChatListAdapterItemBlockedBinding binding = (WidgetChatListAdapterItemBlockedBinding) bindingField.get(callFrame.thisObject);
                 if (binding == null) return;
-                // TODO: Remove view from adapter
-                // https://discord.com/channels/811255666990907402/811261478875299840/868098219803050016
-                // Ask Ven
                 binding.getRoot().setVisibility(View.GONE);
+                binding.getRoot().setLayoutParams(new ViewGroup.LayoutParams(0, 0));
             } catch (Throwable e) {
                 e.printStackTrace();
             }
