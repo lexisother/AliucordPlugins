@@ -13,7 +13,7 @@ cd ../buildtool
 
 cd ../buildsPlugins
 # connect to device via adb over network if not connected already
-[ "$(adb devices | wc -l)" = "2" ] && adb connect 192.168.1.105:5555
+[ "$(adb devices | wc -l)" = "2" ] && adb connect 192.168.1.79:$2
 
 adb push "${1}.zip" /storage/emulated/0/Aliucord/plugins
 adb shell am force-stop com.aliucord
