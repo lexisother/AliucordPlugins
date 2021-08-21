@@ -14,12 +14,12 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.aliucord.Utils;
 import com.aliucord.Http;
 import com.aliucord.api.CommandsAPI;
 import com.aliucord.entities.MessageEmbedBuilder;
 import com.aliucord.entities.Plugin;
 import com.aliucord.plugins.ccmoddb.ApiResponse;
-import com.aliucord.utils.ReflectUtils;
 import com.discord.api.commands.ApplicationCommandType;
 import com.discord.api.commands.CommandChoice;
 import com.discord.api.message.embed.MessageEmbed;
@@ -28,7 +28,6 @@ import com.discord.models.commands.ApplicationCommandOption;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Locale;
 
 @SuppressWarnings("unused")
 public class CCModDB extends Plugin {
@@ -55,11 +54,7 @@ public class CCModDB extends Plugin {
                 result = "I found the following:";
                 res = Http.simpleJsonGet(baseURL, ApiResponse.class);
                 for (String choice : res.mods.keySet()) {
-                    var commandChoice = new CommandChoice();
-                    try {
-                        ReflectUtils.setField(commandChoice, "name", choice, true);
-                        ReflectUtils.setField(commandChoice, "value", choice, true);
-                    } catch (IllegalAccessException | NoSuchFieldException ignored) {}
+                    var commandChoice = Utils.createCommandChoice(choice, choice);
                     choices.add(commandChoice);
                 }
             } catch (IOException t) {
