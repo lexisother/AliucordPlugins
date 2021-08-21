@@ -37,7 +37,8 @@ public class CCModDB extends Plugin {
         var manifest = new Manifest();
         manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L) };
         manifest.description = "CCModDB";
-        manifest.version = "1.1.2";
+        manifest.version = "1.1.3" +
+                "";
         manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
         return manifest;
     }
