@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.aliucord.Logger;
+import com.aliucord.annotations.AliucordPlugin;
 import com.aliucord.entities.Plugin;
 import com.aliucord.patcher.PinePatchFn;
 import com.aliucord.patcher.PinePrePatchFn;
@@ -34,18 +35,19 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
+@AliucordPlugin
 public class HideBlockedMessages extends Plugin {
     private final Logger logger = new Logger("HideBlockedMessages");
-    @NonNull
-    @Override
-    public Manifest getManifest() {
-        var manifest = new Manifest();
-        manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L), new Manifest.Author("zt", 289556910426816513L) };
-        manifest.description = "Completely hides blocked messages.";
-        manifest.version = "1.2.0";
-        manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
-        return manifest;
-    }
+//    @NonNull
+//    @Override
+//    public Manifest getManifest() {
+//        var manifest = new Manifest();
+//        manifest.authors = new Manifest.Author[] { new Manifest.Author("Alyxia", 465702500146610176L), new Manifest.Author("zt", 289556910426816513L) };
+//        manifest.description = "Completely hides blocked messages.";
+//        manifest.version = "1.2.0";
+//        manifest.updateUrl = "https://raw.githubusercontent.com/lexisother/AliucordPlugins/builds/updater.json";
+//        return manifest;
+//    }
 
     @SuppressWarnings("unchecked")
     @Override
