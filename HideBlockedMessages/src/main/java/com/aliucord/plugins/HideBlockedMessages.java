@@ -19,8 +19,8 @@ import androidx.annotation.NonNull;
 import com.aliucord.Logger;
 import com.aliucord.annotations.AliucordPlugin;
 import com.aliucord.entities.Plugin;
-import com.aliucord.patcher.PinePatchFn;
-import com.aliucord.patcher.PinePrePatchFn;
+import com.aliucord.patcher.Hook;
+import com.aliucord.patcher.PreHook;
 import com.aliucord.utils.ReflectUtils;
 import com.discord.databinding.WidgetChatListAdapterItemBlockedBinding;
 import com.discord.models.member.GuildMember;
@@ -52,7 +52,7 @@ public class HideBlockedMessages extends Plugin {
     @SuppressWarnings("unchecked")
     @Override
     public void start(Context context) throws NoSuchMethodException {
-        patcher.patch(WidgetChatListAdapterItemBlocked.class.getDeclaredMethod("onConfigure", int.class, ChatListEntry.class), new PinePatchFn(callFrame -> {
+        patcher.patch(WidgetChatListAdapterItemBlocked.class.getDeclaredMethod("onConfigure", int.class, ChatListEntry.class), new Hook(callFrame -> {
             try {
                 View root = ((WidgetChatListAdapterItemBlockedBinding) Objects.requireNonNull(ReflectUtils.getField(callFrame.thisObject, "binding"))).getRoot();
                 root.setVisibility(View.GONE);
@@ -63,7 +63,7 @@ public class HideBlockedMessages extends Plugin {
         }));
 
         final StoreUserRelationships storeUserRelationships = StoreStream.getUserRelationships();
-        patcher.patch(ChatTypingModel$Companion$getTypingUsers$1$1.class.getDeclaredMethod("call", Map.class, Map.class), new PinePrePatchFn(callFrame -> {
+        patcher.patch(ChatTypingModel$Companion$getTypingUsers$1$1.class.getDeclaredMethod("call", Map.class, Map.class), new PreHook(callFrame -> {
             callFrame.args[1] = ((Map<Long, GuildMember>) callFrame.args[1]).entrySet().stream()
                     .filter(entry -> Objects.requireNonNull(storeUserRelationships.getRelationships().get(entry.getKey())) != 2)
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
